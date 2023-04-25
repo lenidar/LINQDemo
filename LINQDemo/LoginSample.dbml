@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LogInOnlySample" Class="LoginSampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-E6RG946U;Initial Catalog=LogInOnlySample;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="LINQDemo.Properties.Settings" SettingsPropertyName="LogInOnlySampleConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspActualLogin" Method="uspActualLogin">
+    <Parameter Name="UID" Parameter="uID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UPass" Parameter="uPass" Type="System.String" DbType="NChar(16)" />
+    <ElementType Name="uspActualLoginResult">
+      <Column Name="UID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ULastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ULastLogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspActualInsertLog" Method="uspActualInsertLog">
+    <Parameter Name="UID" Parameter="uID" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="logType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="logMessage" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspActualUpdateLastLog" Method="uspActualUpdateLastLog">
+    <Parameter Name="UID" Parameter="uID" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
